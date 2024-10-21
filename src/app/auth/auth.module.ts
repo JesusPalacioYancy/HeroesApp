@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MaterialModule } from '../matirial/matirial.module';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { LayoutPageComponent } from './pages/layout-pages/layout-pages.component';
@@ -15,7 +16,8 @@ import { ReguisterPageComponent } from './pages/reguister-page/reguister-page.co
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    MaterialModule
   ]
 })
 export class AuthModule { }
