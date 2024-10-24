@@ -1,7 +1,6 @@
 <h1>
-    Editar / Agregar
+{{currenHero.id ? 'Editar' : 'Agregar'}}
     Hérue
-    <small>Spiderman</small>
 </h1>
 
 <mat-divider class="mb-2"></mat-divider>
@@ -83,9 +82,13 @@
                     <button 
                     mat-flat-button
                     color="warn"
+                    *ngIf="currenHero.id"
+                    (click)="onDeleteHero()"
                     >
                         Borrar
                     </button>
+
+                    <span></span>
 
                     <button 
                     mat-flat-button
@@ -106,5 +109,3 @@
         </mat-card>
     </div>
 </div>
-
-<pre>{{currenHero | json}}</pre>

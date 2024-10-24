@@ -26,12 +26,7 @@ export class HeroesService{
 
   getSuggestions(query: string): Observable<Hero[]> {
     return this.http.get<Hero[]>(`${ this.baseUrl }/heroes?q=${ query }`)
-      .pipe(
-        map(heroes => heroes.filter( hero => 
-          hero.superhero.toLowerCase().includes(query.toLowerCase())
-        ))
-      );
-  };
+};
 
   addHero(hero: Hero): Observable<Hero>{
     return this.http.post<Hero>(`${ this.baseUrl }/heroes`, hero)
@@ -46,8 +41,8 @@ export class HeroesService{
     if( !id ) throw Error('Hero id is required');
     return this.http.delete<boolean>(`${ this.baseUrl }/heroes/${ id }`)
       .pipe(
-        catchError(err => of(false)),
-        map(resp => true)
+        map(resp => true),
+        catchError(err => of(false))
       )
   };
 
